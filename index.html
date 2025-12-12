@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analiza Wskaźnikowa Akcji</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Analiza Wskaźnikowa Akcji</h1>
+        <p>Ocena Jakości i Wyceny Akcji na podstawie Wskaźników Fundamentalnych</p>
+    </header>
+
+    <main>
+        <section id="inputs" class="card">
+            <h2>Dane Wejściowe i Założenia</h2>
+            <form id="valuation-form">
+
+                <div class="input-group">
+                    <label for="currency-unit">Jednostka Walutowa (np. PLN, EUR, USD)</label>
+                    <input type="text" id="currency-unit" value="PLN" required>
+                    <small>Skrót waluty używany do wyświetlania wyników.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="price">Aktualna Cena Akcji</label>
+                    <input type="number" id="price" value="150.00" step="0.01" required>
+                    <small>Obecna cena rynkowa za akcję.</small>
+                </div>
+
+                <hr>
+
+                <h3>Wskaźniki Fundamentalne</h3>
+
+                <div class="input-group">
+                    <label for="pe-ratio">Wskaźnik C/Z (P/E Ratio)</label>
+                    <input type="number" id="pe-ratio" value="10.0" step="0.01" required>
+                    <small>Cena do Zysku. Im niższy, tym taniej.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="pb-ratio">Wskaźnik C/WK (P/B Ratio)</label>
+                    <input type="number" id="pb-ratio" value="1.6" step="0.01" required>
+                    <small>Cena do Wartości Księgowej.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="roe">ROE (%)</label>
+                    <input type="number" id="roe" value="15.0" step="0.01" required>
+                    <small>Rentowność Kapitału Własnego.</small>
+                </div>
+
+                <hr>
+
+                <h3>Kryteria Wyceny (Standardy Inwestora)</h3>
+
+                <div class="input-group">
+                    <label for="min-roe">Minimalne Wymagane ROE (%)</label>
+                    <input type="number" id="min-roe" value="15" step="0.01" required>
+                    <small>Standard dla "Wysokiej Jakości". Domyślnie: 15%.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="max-pe">Maksymalny Akceptowalny C/Z</label>
+                    <input type="number" id="max-pe" value="15" step="0.01" required>
+                    <small>Benchmark C/Z dla wyceny. Domyślnie: 15.</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="mos-input">Margines Bezpieczeństwa (MoS, %)</label>
+                    <input type="number" id="mos-input" value="25" step="0.01" required>
+                    <small>Wymagany zapas bezpieczeństwa dla ceny.</small>
+                </div>
+
+                <button type="submit" id="calculate-btn">Analizuj Wskaźniki</button>
+            </form>
+        </section>
+
+        <section id="results" class="card hidden">
+            <h2>Wyniki Analizy</h2>
+            <div id="valuation-breakdown">
+            </div>
+
+            <hr>
+
+            <div id="summary">
+                <p><strong>Szacowana Wartość (IV Estimate):</strong> <span id="iv-value">0.00</span></p>
+                <p><strong>Cena Zakupu z MoS:</strong> <span id="mos-value">0.00</span></p>
+            </div>
+
+            <div id="decision-panel">
+                <h3 id="decision-title">Decyzja Końcowa:</h3>
+                <p id="decision-text" class="status-neutral">Wprowadź dane, aby analizować.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="scripts/calculation.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

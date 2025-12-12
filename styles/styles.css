@@ -1,0 +1,182 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --neutral-color: #ffc107;
+    --font-family: sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    padding: 15px;
+    color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1e1e1e;
+        --card-background: #252526;
+        --text-color: #f0f0f0;
+        --secondary-color: #b0b0b0;
+        --border-color: #444;
+        --primary-color: #4a90e2;
+        --success-color: #4ade80;
+        --danger-color: #f97171;
+        --neutral-color: #ffda63;
+    }
+
+    hr {
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input[type="number"],
+.input-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.input-group small {
+    color: var(--secondary-color);
+    font-size: 0.8em;
+    margin-top: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+#valuation-breakdown p {
+    margin: 5px 0;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary-color);
+}
+
+#summary {
+    font-size: 1.1em;
+}
+
+#summary strong {
+    color: var(--primary-color);
+}
+
+#decision-panel {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+#decision-title {
+    color: #333;
+}
+
+.status-buy {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.status-sell {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.status-neutral {
+    background-color: var(--neutral-color);
+    color: #333;
+}
+
+#decision-text {
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+    body {
+        padding: 30px;
+    }
+
+    main {
+        flex-direction: row;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    #inputs {
+        flex: 1;
+    }
+
+    #results {
+        flex: 1;
+    }
+
+    button {
+        padding: 15px;
+    }
+}
